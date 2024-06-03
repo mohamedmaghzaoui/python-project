@@ -1,0 +1,1 @@
+{"py/object": "__main__.Library", "_Library__library": [{"py/object": "__main__.Book", "_Book__title": "lord", "_Book__author": "lord2", "_Book__content": "hello"}, {"py/object": "__main__.Book", "_Book__title": "down", "_Book__author": "down", "_Book__content": "down"}, {"py/object": "__main__.Book", "_Book__title": "l", "_Book__author": "l", "_Book__content": "l"}]}
