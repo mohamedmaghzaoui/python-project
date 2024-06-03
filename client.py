@@ -1,23 +1,15 @@
 import socket
 import sys
 import jsonpickle
-#help cmd
-def print_help():
-    print("hello there")
-    print("Options:")
-    print("add      - Add a book")
-    print("show_all - Show all books")
-    print("read - read a book by id")
-    print("update - update a book by id")
-    print("delete - delete a book by id")
-    print("help - give list of cmds")
-    print("exit     - Exit the program")
+#print help function
 
 
 
+# infinite loop
 while (True):
     
     HOST, PORT = "localhost", 9999
+    #input to get action for user
     data = input("action: ")
    
 
@@ -35,20 +27,24 @@ while (True):
             #sned data
             json_data = jsonpickle.encode(params)
             sock.sendall(bytes(json_data , "utf-8"))
+        #show all books
         elif(data=="show_all"):
             params={'command':'show_all'}
             json_data = jsonpickle.encode(params)
             sock.sendall(bytes(json_data , "utf-8"))
+        #delete book by id
         elif (data=="delete"):
             id=int(input('Enter Book ID :'))
             params={'command':'delete',"id":id}
             json_data = jsonpickle.encode(params)
             sock.sendall(bytes(json_data , "utf-8"))
+        #read book by id
         elif(data=="read"):
             id=int(input('Enter Book ID :'))
             params={'command':'read',"id":id}
             json_data = jsonpickle.encode(params)
             sock.sendall(bytes(json_data , "utf-8"))
+        #update book by id
         elif(data=="update"):
             id=int(input('Enter Book ID :'))
             title=input("Enter Title : ")
@@ -59,6 +55,11 @@ while (True):
             #sned data
             json_data = jsonpickle.encode(params)
             sock.sendall(bytes(json_data , "utf-8"))
+        else:
+            params={'command':'help'}
+            json_data = jsonpickle.encode(params)
+            sock.sendall(bytes(json_data , "utf-8"))
+            
         
         
             
