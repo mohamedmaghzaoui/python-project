@@ -1,5 +1,6 @@
 import socketserver
 import jsonpickle
+import os
 #book class
 class Book:
     def __init__(self, title, author, content) -> None:
@@ -128,6 +129,6 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         print(f"Received from {self.client_address[0]}: {self.data}")
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 9999
+    HOST, PORT = os.getenv('BIB_HOST', 'localhost'), int(os.getenv('BIB_PORT', 9999))
     with socketserver.TCPServer((HOST, PORT), MyTCPHandler) as server:
         server.serve_forever()

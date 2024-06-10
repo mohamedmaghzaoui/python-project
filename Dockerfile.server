@@ -1,0 +1,9 @@
+FROM python:3.11.9-alpine3.20
+WORKDIR /app/
+COPY requirements.txt /app/
+COPY server.py /app/
+ENV BIB_PORT 9999
+ENV BIB_HOST '172.17.0.2'
+EXPOSE ${BIB_PORT}
+RUN pip install -r requirements.txt
+CMD ["python", "/app/server.py"]

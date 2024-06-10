@@ -1,14 +1,15 @@
 import socket
 import sys
 import jsonpickle
+import os
 #print help function
 
 
-
+HOST, PORT = os.getenv('BIB_HOST', 'localhost'), int(os.getenv('BIB_PORT', 9999))
 # infinite loop
 while (True):
+   
     
-    HOST, PORT = "localhost", 9999
     #input to get action for user
     data = input("action: ")
    
